@@ -13,7 +13,6 @@ public class Contact {
 
     public String getName() {
         return name;
-        //Hello
     }
 
     public String getLastname() {

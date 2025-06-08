@@ -8,6 +8,12 @@ public class ContactDao {
     public static final String URL = "jdbc:postgresql://localhost:5432/MyDataBase";
     public static final String user = "postgres";
     public static final String password = "1234";
+    private Connection connection;
+    public ContactDao(Connection conn){
+        this.connection = conn;
+
+    }
+
 
     private Connection connect() throws SQLException {
         return DriverManager.getConnection(URL, user, password);
@@ -23,7 +29,6 @@ public class ContactDao {
             String lastname = resultSet.getString("lastname");
             String phone = resultSet.getString("phone");
             System.out.println("Name: " + firstName + ", Lastname: " + lastname + ", Phone: " + phone);
-//aa
         }
     }
 
@@ -67,7 +72,7 @@ public class ContactDao {
         String URL = "jdbc:postgresql://localhost:5432/MyDataBase";
         String user = "postgres";
         String password = "1234";
-        String sql = "INSERT INTO student(id,firstname) VALUES (?,?)";
+        String sql = "INSERT INTO contact(firstname,lastname,phone) VALUES (?,?,?)";
         try (Connection connection = connect();
              PreparedStatement statement = connection.prepareStatement(sql);) {
             statement.setString(1, contact.getName());
