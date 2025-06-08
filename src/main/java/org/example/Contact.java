@@ -23,19 +23,8 @@ public class Contact {
         return phone;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
     @Override
     public String toString() {
-        return "Contact [name=" + name + ", lastname=" + lastname + ", phone=" + phone + "]";
+        return "نام: " + name + "، نام خانوادگی: " + lastname + "، شماره: " + phone;
     }
 }
