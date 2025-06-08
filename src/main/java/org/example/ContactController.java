@@ -20,11 +20,11 @@ public class ContactController {
             try {
                 switch (choice) {
                     case 1 -> addContact();
-                    case 2 -> showAllContacts();
+                    case 2 -> showAllContact();
                     case 3 -> updateContact();
                     case 4 -> deleteContact();
                     case 5 -> {
-                        System.out.println("خروج از برنامه.");
+                        System.out.println("خروج از برنامه انجام شد");
                         return;
                     }
                     default -> System.out.println("گزینه نامعتبر!");
@@ -43,12 +43,20 @@ public class ContactController {
         System.out.println("مخاطب اضافه شد.");
     }
 
-    public void showAllContacts() throws SQLException {
+    public void showAllContact() throws SQLException {
         List<Contact> contacts = dao.getAllContacts();
-        for (Contact c : contacts) {
-            System.out.println(c);
+
+        System.out.printf("%-15s %-15s %-15s\n", "First Name", "Last Name", "Phone");
+        System.out.println("------------------------------------------------------");
+
+        for (Contact contact : contacts) {
+            System.out.printf("%-15s %-15s %-15s\n",
+                    contact.getName(),
+                    contact.getLastname(),
+                    contact.getPhone());
         }
     }
+
 
     public void updateContact() throws SQLException {
         String phone = view.getInput("شماره مخاطب (برای ویرایش)");
