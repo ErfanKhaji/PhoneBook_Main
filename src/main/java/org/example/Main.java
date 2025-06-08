@@ -8,7 +8,7 @@ public class Main {
             ContactController controller = new ContactController(dao, view);
             controller.start();
         }catch (Exception e){
-            System.out.println("ورودی نامعتبر ");
+            System.out.println("Unhandled exception: " + e);
         }
 
 

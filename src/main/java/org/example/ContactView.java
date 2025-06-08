@@ -6,16 +6,16 @@ public class ContactView {
     private final Scanner scanner = new Scanner(System.in);
 
     public void showMenu() {
-        System.out.println("\n--- دفترچه تلفن ---");
-        System.out.println("1. اضافه کردن مخاطب");
-        System.out.println("2. نمایش همه مخاطبین");
-        System.out.println("3. ویرایش مخاطب");
-        System.out.println("4. حذف مخاطب");
-        System.out.println("5. خروج");
+        System.out.println("\n--- PhoneBook Menu ---");
+        System.out.println("1.Add New Contact");
+        System.out.println("2. Show All Contact");
+        System.out.println("3.Update Contact");
+        System.out.println("4.Delete Contact");
+        System.out.println("5.Excite");
     }
 
     public int getUserChoice() {
-        System.out.print("انتخاب شما: ");
+        System.out.print("Your choice: ");
         return scanner.nextInt();
     }
 

@@ -24,23 +24,23 @@ public class ContactController {
                     case 3 -> updateContact();
                     case 4 -> deleteContact();
                     case 5 -> {
-                        System.out.println("خروج از برنامه انجام شد");
+                        System.out.println("Excited...");
                         return;
                     }
-                    default -> System.out.println("گزینه نامعتبر!");
+                    default -> System.out.println("Unknown choice " + choice);
                 }
             } catch (SQLException e) {
-                System.out.println("خطا در پایگاه داده: " + e.getMessage());
+                System.out.println("Error In Database: " + e.getMessage());
             }
         }
     }
 
     public void addContact() throws SQLException {
-        String name = view.getInput("نام");
-        String lastname = view.getInput("نام خانوادگی");
-        String phone = view.getInput("شماره تلفن");
+        String name = view.getInput("First Name: ");
+        String lastname = view.getInput("Last Name: ");
+        String phone = view.getInput("Phone Number: ");
         dao.addContact(new Contact(name, lastname, phone));
-        System.out.println("مخاطب اضافه شد.");
+        System.out.println("Contact Added");
     }
 
     public void showAllContact() throws SQLException {
@@ -59,16 +59,16 @@ public class ContactController {
 
 
     public void updateContact() throws SQLException {
-        String phone = view.getInput("شماره مخاطب (برای ویرایش)");
-        String name = view.getInput("نام جدید");
-        String lastname = view.getInput("نام خانوادگی جدید");
+        String phone = view.getInput("New Contact Phone Number: ");
+        String name = view.getInput("New Contact Name: ");
+        String lastname = view.getInput("New Contact Last Name: ");
         dao.updateContact(new Contact(name, lastname, phone));
-        System.out.println("مخاطب به‌روزرسانی شد.");
+        System.out.println("Contact Updated");
     }
 
     public void deleteContact() throws SQLException {
-        String phone = view.getInput("شماره مخاطب برای حذف");
+        String phone = view.getInput("Contact Phone Number to Delete: ");
         dao.deleteContactByPhone(phone);
-        System.out.println("مخاطب حذف شد.");
+        System.out.println("Contact Deleted");
     }
 }
